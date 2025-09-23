@@ -1,0 +1,271 @@
+/* Custom styling inspired by yjoonjang.github.io for clean, academic look */
+
+/* Typography improvements */
+.page__content {
+  h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.8em;
+    color: #2c3e50;
+  }
+
+  h2 {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.3em;
+    margin-top: 2em;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+    color: #444;
+  }
+
+  strong {
+    font-weight: 600;
+    color: #2c3e50;
+  }
+}
+
+/* Clean navigation styling */
+.masthead {
+  .site-title {
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+
+  .visible-links {
+    a {
+      font-weight: 500;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #3498db;
+      }
+    }
+  }
+}
+
+/* Enhanced sidebar author profile */
+.sidebar .author__avatar {
+  img {
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+}
+
+.sidebar .author__name {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+.sidebar .author__bio {
+  line-height: 1.5;
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* Clean list styling */
+.page__content {
+  ul, ol {
+    margin-bottom: 1.5em;
+
+    li {
+      margin-bottom: 0.4em;
+      line-height: 1.5;
+    }
+  }
+
+  ul li {
+    list-style: none;
+    position: relative;
+    padding-left: 1.2em;
+
+    &:before {
+      content: "•";
+      color: #3498db;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+/* Enhanced model cards and notices */
+.model-card {
+  background: #f8f9fa;
+  border-left: 4px solid #3498db;
+  padding: 1.2em;
+  margin: 1.5em 0;
+  border-radius: 0 4px 4px 0;
+
+  p {
+    margin-bottom: 0.6em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    color: #2c3e50;
+  }
+
+  a {
+    color: #3498db;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.notice--info {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+
+  h4 {
+    color: #1976d2;
+    margin-bottom: 0.5em;
+  }
+}
+
+.notice--success {
+  background: #e8f5e8;
+  border-left: 4px solid #4caf50;
+
+  h4 {
+    color: #2e7d32;
+    margin-bottom: 0.5em;
+  }
+}
+
+/* Code block improvements */
+pre {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1.5em 0;
+  overflow-x: auto;
+
+  code {
+    background: transparent;
+    padding: 0;
+    border: none;
+  }
+}
+
+code {
+  background: #f1f2f3;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #e74c3c;
+  border: 1px solid #ddd;
+}
+
+/* Table styling */
+table {
+  margin: 1.5em 0;
+  border-collapse: collapse;
+  width: 100%;
+
+  th, td {
+    padding: 0.8em;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  tr:hover {
+    background: #f8f9fa;
+  }
+}
+
+/* Archive page improvements */
+.archive__item {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #eee;
+
+  .archive__item-title {
+    margin-bottom: 0.3em;
+    font-weight: 600;
+
+    a {
+      color: #2c3e50;
+      text-decoration: none;
+
+      &:hover {
+        color: #3498db;
+      }
+    }
+  }
+
+  .archive__item-excerpt {
+    color: #666;
+    line-height: 1.5;
+  }
+}
+
+/* Social icons enhancement */
+.author__urls {
+  .fas, .fab, .fal, .far {
+    color: #3498db;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    .fas, .fab, .fal, .far {
+      color: #2980b9;
+    }
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .page__content {
+    h1, h2, h3, h4 {
+      font-size: 1.3em;
+    }
+
+    h2 {
+      margin-top: 1.5em;
+    }
+  }
+
+  .model-card {
+    padding: 1em;
+    margin: 1em 0;
+  }
+}
+
+/* MathJax styling */
+.MathJax {
+  margin: 1em 0;
+}
+
+/* Additional spacing and readability */
+.page__content {
+  hr {
+    margin: 2.5em 0;
+    border: none;
+    border-top: 2px solid #eee;
+  }
+
+  blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 1.5em;
+    margin: 1.5em 0;
+    color: #666;
+    font-style: italic;
+  }
+}
