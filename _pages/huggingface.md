@@ -142,14 +142,4 @@ author_profile: true
   <p><a href="https://github.com/UKPLab/sentence-transformers/pull/3299" target="_blank">🔗 Pull Request #3299</a></p>
 </div>
 
----
 
-## 커뮤니티 활동
-
-### 인스트럭트-한국 2025 1월 Meetup 발표
-
-**날짜**: 2025.01.25
-
-**개요**: 한국어 LLM 벤치마크인 LogicKor 벤치마크를 운영하는 Instruct KR 주최로 LLM과 RAG 등의 자유 주제 발표에 참여. 허깅페이스에 올린 Embedding Benchmark SOTA 모델을 만든 방법론과 기술적 인사이트를 공유했습니다.
-
-이 기여를 통해 더 효과적인 임베딩 모델 학습이 가능해져 한국어 NLP 연구 발전에 기여하고 있습니다.
