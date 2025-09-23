@@ -28,7 +28,7 @@ NLP와 LLM 연구에서 핵심적으로 사용되는 수학적 개념들을 정�
 
 ---
 
-## 1. InfoNCE Loss
+## InfoNCE Loss
 
 **Contrastive Learning**의 핵심 손실 함수로, anchor 샘플과 positive/negative 예시들을 비교합니다.
 
@@ -45,33 +45,12 @@ $$\mathcal{L}_{\text{InfoNCE}} = -\log \frac{\exp(\text{sim}(a, p) / \tau)}{\exp
 
 ---
 
-## 2. False Negative Mitigation
+## Hard Negative Filtering
 
-**잘못 분류된 네거티브 샘플**의 악영향을 줄이는 핵심 기법입니다.
-
-$$w_i = \begin{cases}
-\alpha \text{ (where } 0 < \alpha < 1 \text{)} & \text{if } \text{sim}(a, n_i) > \theta \\
-1 & \text{otherwise}
-\end{cases}$$
-
-**적용 방법**:
-- **Threshold 기반**: 유사도가 높은 negative sample의 가중치 감소
-- **Margin 전략**: 절대값/백분율 기준으로 false negative 제거
-- **배치 크기 효과**: 큰 배치에서 더 효과적
-
----
-
-## 3. Hard Negative Mining
-
-**어려운 네거티브 샘플**을 선별하여 학습 효율성을 극대화하는 전략입니다.
-
-### Distance-based Filtering
-$$\text{HardNeg} = \{n_i \mid \text{sim}(a, n_i) > \text{threshold}\}$$
+**어려운 네거티브 샘플**을 필터링하여 학습 효율성을 극대화하는 전략입니다.
 
 ### Semi-Hard Negative Selection
-$$\text{SemiHardNeg} = \{n_i \mid \text{sim}(a, p) < \text{sim}(a, n_i) < \text{sim}(a, p) + \text{margin}\}$$
-
-**Curriculum Learning**: 점진적으로 어려운 샘플들을 학습에 도입
+$$\text{SemiHardNeg} = \{n_i \mid \text{sim}(a, p) - \text{margin} < \text{sim}(a, n_i)$$
 
 ---
 
@@ -137,40 +116,3 @@ $$\mathcal{L}_{\text{GRPO}} = -\mathbb{E}_{(x,\{y_i\}) \sim \mathcal{D}} \left[ 
 
 ---
 
-## 6. GISTEmbedLoss (나의 기여)
-
-**Guide 모델**을 활용한 개선된 임베딩 학습 손실 함수입니다.
-
-$$\mathcal{L}_{\text{GIST}} = \mathcal{L}_{\text{InfoNCE}} + \lambda \cdot \mathcal{L}_{\text{Guide}}$$
-
-**나의 개선사항**:
-- **Multiple Negative 지원**: 기존 1:1:1 구조를 1:1:N으로 확장
-- **False Negative 완화**: In-batch negative에서 false negative 제거
-- **안정성 향상**: 가이드 모델의 지식 증류로 학습 안정화
-
-$$\mathcal{L}_{\text{Guide}} = \text{KL}(\text{Guide}(a, p, \{n_i\}) \parallel \text{Student}(a, p, \{n_i\}))$$
-
----
-
-## 7. Attention Mechanism
-
-**Transformer의 핵심 메커니즘**입니다.
-
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
-
-**Multi-Head Attention**:
-$$\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O$$
-
-여기서 각 $\text{head}_i = \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)$
-
----
-
-## 🎯 수식 데모
-
-간단한 예제로 **코사인 유사도** 계산:
-
-두 벡터 $\mathbf{a} = [1, 2, 3]$, $\mathbf{b} = [4, 5, 6]$에 대해:
-
-$$\text{cosine\_similarity}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}| \cdot |\mathbf{b}|} = \frac{32}{\sqrt{14} \cdot \sqrt{77}} \approx 0.974$$
-
-이 수학적 기초들이 제가 개발한 SOTA 임베딩 모델들의 핵심이 되었습니다! 🚀

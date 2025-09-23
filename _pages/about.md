@@ -52,9 +52,9 @@ redirect_from:
 
 - 인스트럭트-한국 2025 1월 Meetup 발표
 
-**날짜**: 2025.01.25
+- **날짜**: 2025.01.25
 
-**개요**: 한국어 LLM 벤치마크인 LogicKor 벤치마크를 운영하는 Instruct KR 주최로 LLM과 RAG 등의 자유 주제 발표에 참여. 허깅페이스에 올린 Embedding Benchmark SOTA 모델을 만든 방법론과 기술적 인사이트를 공유했습니다.
+- **개요**: 한국어 LLM 벤치마크인 LogicKor 벤치마크를 운영하는 Instruct KR 주최로 LLM과 RAG 등의 자유 주제 발표에 참여. 허깅페이스에 올린 Embedding Benchmark SOTA 모델을 만든 방법론과 기술적 인사이트를 공유했습니다.
 
 ---
 
