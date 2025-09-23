@@ -1,9 +1,12 @@
 # Navigation menu structure - Order fixed as requested
-# 1) About  2) HuggingFace  3) Blog  4) CodingLevel  5) Youtube  6) Math
+# 1) About  2) Publications  3) HuggingFace  4) Blog  5) CodingLevel  6) Youtube  7) Math
 
 main:
   - title: "About"
     url: /
+
+  - title: "Publications"
+    url: /publications/
 
   - title: "HuggingFace"
     url: /huggingface/

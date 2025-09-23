@@ -24,16 +24,28 @@ redirect_from:
 **현재 (2025~)**: LLM 엔지니어링 (RLHF, reasoning)
 **이전 (2022~2025)**: NLP 연구 (검색 및 도메인 적응)
 
-## 연구 논문
+## 오픈소스 활동
 
-- **"임베딩 모델의 성능 평가에 대한 최신 연구 동향"** (대학생논문경진대회, 2022.06)
-  [논문 링크](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11082572)
+### HuggingFace 기여
+- **MTEB-ko-retrieval Leaderboard** 종합 SOTA 성능 모델 공개
+- **AutoRAG Embedding Benchmark**에서 Bi-Encoder와 Cross-Encoder 모두 SOTA 달성
+- 총 3개의 SOTA 모델을 [HuggingFace](https://huggingface.co/dragonkue)에 공유
 
-- **"텍스트 문서의 창의성 평가 모델 최신 연구 동향"** (대학생논문경진대회, 2022.06)
-  [논문 링크](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11183858)
+### Sentence-Transformers 라이브러리 개선
+- **GISTEmbedLoss Multiple Negative 지원** - [PR #2946](https://github.com/UKPLab/sentence-transformers/pull/2946)
+- **False Negative 제거 방법 개선** - [PR #3299](https://github.com/UKPLab/sentence-transformers/pull/3299)
+  - 절대값/백분율 기준 margin 전략으로 학습 안정성 및 성능 향상
+  - 배치 사이즈가 클수록 더 높은 성능 향상 확인
 
-## 특허
+## 주요 성과
 
+### 연구 논문
+- 에세이 창의성 점수 예측 모델을 위한 학습데이터 구축 방안 (KCI, 2023.10)
+- 에세이 평가 자동화를 위한 대조 학습 기반 다중계층 BERT 모델 손실함수에 관한 연구 (한국정보기술학회논문지, 2023.09)
+- CLES-BERT: 에세이 점수 예측을 위한 대조학습 기반 BERT 모델 (한국정보기술학회논문지, 2023.04)
+- 자연어처리를 위한 대조 학습 기반의 심층학습 모델에 대한 최근 연구 동향 (대학생논문경진대회, 2022.12)
+
+### 특허
 - 2025년 2개 특허 출원 예정
 
 ---

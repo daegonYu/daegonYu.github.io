@@ -14,7 +14,9 @@
       "Bash(head:*)",
       "WebSearch",
       "Bash(python3:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(bundle exec jekyll build:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

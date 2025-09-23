@@ -1,42 +1,114 @@
 ---
 layout: archive
-title: "HuggingFace"
+title: "HuggingFace Portfolio"
 permalink: /huggingface/
 author_profile: true
 ---
 
-## 오픈소스 활동
-
-AutoRAG Embedding Benchmark에서 Bi-Encoder와 Cross-Encoder 모두 SOTA 성능을 보이는 모델을 만들고 공유하는 것을 시작으로 최근에는 **MTEB-ko-retrieval Leaderboard(8가지 한국어 Retrieval 벤치마크)**에 대해 SOTA 성능을 보이는 모델을 공유했습니다.
-
-<div class="notice--info">
-  <h4>HuggingFace Profile</h4>
-  <p><a href="https://huggingface.co/dragonkue" target="_blank">🤗 https://huggingface.co/dragonkue</a></p>
+<div class="notice--primary">
+  <h4>🤗 HuggingFace Profile</h4>
+  <p><strong><a href="https://huggingface.co/dragonkue" target="_blank">https://huggingface.co/dragonkue</a></strong></p>
+  <p>AutoRAG Embedding Benchmark에서 Bi-Encoder와 Cross-Encoder 모두 SOTA 성능을 달성하며 시작된 오픈소스 기여 활동이 현재는 <strong>MTEB-ko-retrieval Leaderboard</strong>에서 종합 1위를 기록하는 성과로 이어졌습니다.</p>
 </div>
 
 ---
 
-## 주요 모델
+## 🏆 SOTA 모델들
 
-### 1. snowflake-arctic-embed-l-v2.0-ko
-<div class="model-card">
-  <p><strong>🏆 SOTA Model</strong></p>
-  <p><strong>Link</strong>: <a href="https://huggingface.co/dragonkue/snowflake-arctic-embed-l-v2.0-ko" target="_blank">snowflake-arctic-embed-l-v2.0-ko</a></p>
-  <p><strong>Description</strong>: 임베딩 모델에서 한국어 IR 벤치마크(<strong>MTEB-ko-retrieval Leaderboard</strong>) 종합 SOTA 모델</p>
-</div>
+<style>
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
 
-### 2. BGE-m3-ko
-<div class="model-card">
-  <p><strong>🎯 AutoRAG Champion</strong></p>
-  <p><strong>Link</strong>: <a href="https://huggingface.co/dragonkue/BGE-m3-ko" target="_blank">BGE-m3-ko</a></p>
-  <p><strong>Description</strong>: 임베딩 모델에서 AutoRAG Embedding 벤치마크에서 SOTA 모델</p>
-</div>
+.model-card {
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-### 3. bge-reranker-v2-m3-ko
-<div class="model-card">
-  <p><strong>🔄 Reranker SOTA</strong></p>
-  <p><strong>Link</strong>: <a href="https://huggingface.co/dragonkue/bge-reranker-v2-m3-ko" target="_blank">bge-reranker-v2-m3-ko</a></p>
-  <p><strong>Description</strong>: Reranker 모델에서 AutoRAG Embedding 벤치마크에서 SOTA 모델</p>
+.model-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.model-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.model-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.sota-badge { background: #ff6b6b; color: white; }
+.champion-badge { background: #4ecdc4; color: white; }
+.reranker-badge { background: #45b7d1; color: white; }
+
+.model-link {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c5aa0;
+  text-decoration: none;
+}
+
+.model-link:hover {
+  text-decoration: underline;
+}
+
+.model-description {
+  margin-top: 0.75rem;
+  color: #555;
+  line-height: 1.4;
+}
+</style>
+
+<div class="model-grid">
+  <div class="model-card">
+    <div class="model-header">
+      <span class="model-badge sota-badge">🏆 SOTA</span>
+    </div>
+    <a href="https://huggingface.co/dragonkue/snowflake-arctic-embed-l-v2.0-ko" target="_blank" class="model-link">
+      snowflake-arctic-embed-l-v2.0-ko
+    </a>
+    <p class="model-description">
+      임베딩 모델에서 한국어 IR 벤치마크(<strong>MTEB-ko-retrieval Leaderboard</strong>) 종합 SOTA 모델
+    </p>
+  </div>
+
+  <div class="model-card">
+    <div class="model-header">
+      <span class="model-badge champion-badge">🎯 AutoRAG Champion</span>
+    </div>
+    <a href="https://huggingface.co/dragonkue/BGE-m3-ko" target="_blank" class="model-link">
+      BGE-m3-ko
+    </a>
+    <p class="model-description">
+      임베딩 모델에서 AutoRAG Embedding 벤치마크에서 SOTA 모델
+    </p>
+  </div>
+
+  <div class="model-card">
+    <div class="model-header">
+      <span class="model-badge reranker-badge">🔄 Reranker SOTA</span>
+    </div>
+    <a href="https://huggingface.co/dragonkue/bge-reranker-v2-m3-ko" target="_blank" class="model-link">
+      bge-reranker-v2-m3-ko
+    </a>
+    <p class="model-description">
+      Reranker 모델에서 AutoRAG Embedding 벤치마크에서 SOTA 모델
+    </p>
+  </div>
 </div>
 
 ---

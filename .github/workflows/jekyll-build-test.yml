@@ -1,0 +1,116 @@
+name: Jekyll Build Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+
+    - name: Build Jekyll site
+      run: |
+        bundle exec jekyll build --strict_front_matter
+
+    - name: Test site build
+      run: |
+        # Check if _site directory was created
+        if [ ! -d "_site" ]; then
+          echo "❌ Jekyll build failed - _site directory not found"
+          exit 1
+        fi
+
+        # Check if index.html exists
+        if [ ! -f "_site/index.html" ]; then
+          echo "❌ Main index.html not generated"
+          exit 1
+        fi
+
+        # Check if key pages exist
+        pages=(
+          "_site/publications/index.html"
+          "_site/huggingface/index.html"
+          "_site/math/index.html"
+          "_site/youtube/index.html"
+          "_site/codinglevel/index.html"
+        )
+
+        for page in "${pages[@]}"; do
+          if [ ! -f "$page" ]; then
+            echo "❌ Required page not found: $page"
+            exit 1
+          else
+            echo "✅ Found: $page"
+          fi
+        done
+
+    - name: Check for broken internal links
+      run: |
+        # Install html-proofer for link checking
+        gem install html-proofer
+
+        # Run html-proofer with specific settings
+        bundle exec htmlproofer ./_site \
+          --disable-external \
+          --check-html \
+          --check-favicon \
+          --allow-hash-href \
+          --empty-alt-ignore \
+          --only-4xx
+
+    - name: Validate Publications
+      run: |
+        # Check if publications are properly generated
+        if [ ! -d "_site/publication" ]; then
+          echo "❌ Publications collection not generated"
+          exit 1
+        fi
+
+        # Count publication files
+        pub_count=$(find _site/publication -name "*.html" | wc -l)
+        if [ $pub_count -lt 4 ]; then
+          echo "❌ Expected at least 4 publications, found $pub_count"
+          exit 1
+        fi
+
+        echo "✅ Found $pub_count publication pages"
+
+    - name: Check MathJax configuration
+      run: |
+        # Check if math page contains MathJax
+        if ! grep -q "MathJax" "_site/math/index.html"; then
+          echo "❌ MathJax not found in math page"
+          exit 1
+        fi
+
+        echo "✅ MathJax configuration found"
+
+    - name: Final validation
+      run: |
+        echo "🎉 All tests passed!"
+        echo "📊 Site statistics:"
+        echo "   - Total HTML files: $(find _site -name "*.html" | wc -l)"
+        echo "   - Total CSS files: $(find _site -name "*.css" | wc -l)"
+        echo "   - Total JS files: $(find _site -name "*.js" | wc -l)"
